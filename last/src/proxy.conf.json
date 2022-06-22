@@ -1,0 +1,8 @@
+{
+    "*/arm-server": {
+      "target": "none",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }

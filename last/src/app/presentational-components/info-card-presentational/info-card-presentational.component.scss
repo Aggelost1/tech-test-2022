@@ -1,0 +1,9 @@
+@import 'src/app/styles/_index.scss';
+
+.info-card {
+    background-color: $background-transparent-dark-1;
+    padding: 15px;
+    @include prefix($property: box-shadow, $value: $card-shadow);
+    border-radius: $card-border-radius;
+
+}

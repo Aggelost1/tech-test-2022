@@ -1,0 +1,107 @@
+// base colours
+$white: #ffffff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #333333 !default;
+$gray-300: #666968 !default;
+$gray-400: #515151 !default;
+$black: #000000 !default;
+$blue-100: #0e85d4 !default;
+$blue-200: #618fb0 !default;
+$blue-300: #5383a5 !default;
+$blue-400: #4a7594 !default;
+$blue-500: #3e627c !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #ac2925 !default;
+$orange-100: #fd7e14 !default;
+$orange-200: #ff5f00 !default;
+$yellow: #ffc107 !default;
+$green-100: #28a745 !default;
+$green-200: #57d56e !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+
+// text colors
+$text-color: $white;
+
+// background colors
+$background-color: $blue-100;
+$background-color-light: $gray-100;
+$background-color-dark-1: $blue-200;
+$background-color-dark-2: $gray-300;
+
+$background-color-button-primary: $blue-100;
+$background-color-button-primary: $blue-100;
+
+$background-transparent-dark-1: rgba($gray-200, 0.4);
+$background-transparent-dark-2: rgba($gray-200, 0.7);
+
+
+// background states
+$background-color-button-primary-active: $blue-400;
+
+$background-transparent-row-active-dark: rgba($gray-200, 0.25);
+
+
+// message colors
+$success-color: $green-200;
+$danger-color: $orange-200;
+$information-color: $blue-100;
+$warning-color: $yellow;
+$text-color: $white;
+
+// border colors
+$border-color-light: $gray-100;
+$border-color: $blue-300;
+
+// border color states
+$border-color-button-primary-active: $blue-500;
+
+
+// borders
+$border-solid-1: 1px solid $border-color;
+$border-solid-1-light: 1px solid $border-color-light;
+$title-header-border: 3px solid $border-color-light;
+
+// drop-shadows colors
+$shadow-color: transparentize($color: $gray-400, $amount: .6);
+
+// drop-shadows
+$card-shadow: $shadow-color 0px 1px 2px 0px;
+
+// component styles
+$card-border-radius: 4px;
+
+// screen sizes
+$laptop-end: 998px;
+$tablet-end: 768px;
+$large-mobile-end: 425px;
+$medium-mobile-end: 375px;
+$small-mobile-end: 320px;
+
+
+// font weights
+$font-weight-100: 100;
+$font-weight-200: 200;
+$font-weight-300: 300;
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-600: 600;
+$font-weight-700: 700;
+$font-weight-800: 800;
+$font-weight-900: 900;
+
+$font-weight: $font-weight-500;
+
+// font sizes
+$text-size-very-small: .5rem;
+$text-size-small: .8rem;
+$text-size-medium: 1rem;
+$text-size-large: 1.2rem;
+$text-size-very-large: 1.5rem;
+
+$header-size-very-large: 2.4rem;
+$header-size-large: 2.2rem;
+$header-size-medium: 2rem;
+$header-size-small: 1.8rem;

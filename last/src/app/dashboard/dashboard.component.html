@@ -1,0 +1,68 @@
+<div class="dashboard">
+    <ng-container *ngIf="flags$ | async as flags">
+        <app-info-card-presentational
+            *ngIf="flags.hasGroupsLoadingError || flags.hasTeamsLoadingError || flags.hasMeasurementsLoadingError"
+            [cssClasses]="'text--error'" [info]="errorMesage">
+        </app-info-card-presentational>
+
+
+        <ng-container *ngIf="teamsData$ | async as teamsData">
+            <app-dashboard-charts [data]="teamsData"></app-dashboard-charts>
+        </ng-container>
+
+
+        <!--TODO1: turn this (grid) into a presentational component -->
+        <kendo-grid [kendoGridBinding]="(teamsData$ | async)!" [sortable]="false" class="border--rounded"
+            [loading]="flags.areTeamsLoading">
+
+
+            <!-- TODO1: tool bar should be its own presentational component  (Content projection) -->
+            <ng-template kendoGridToolbarTemplate>
+                <span>External Metrics</span>
+                <kendo-grid-spacer></kendo-grid-spacer>
+                <!-- TODO2: add elipsis  on overflow and tooltip on hover and active -->
+                <kendo-dropdownlist [data]="(groups$ | async)!" textField="label" valueField="url"
+                    [disabled]="flags.areGroupsLoading" [(ngModel)]="selectedGroup" (valueChange)="groupChanged($event)"
+                    [valuePrimitive]="true" class="dropdown dropdown--dark">
+                </kendo-dropdownlist>
+                <kendo-dropdownlist [data]="(measurements$ | async)!" textField="label" valueField="url"
+                    [disabled]="flags.areMeasurementsLoading" [(ngModel)]="selectedMeasurement"
+                    (valueChange)="measurementChanged($event)" [valuePrimitive]="true" class="dropdown dropdown--dark">
+                </kendo-dropdownlist>
+                <button (click)="onSearch()" class="dashboard__button dashboard__button--primary"
+                    [disabled]="!selectedMeasurement || !selectedGroup"><span>Run</span></button>
+            </ng-template>
+
+            <!-- TODO1: columns may be its own presentational component (Content projection) -->
+            <kendo-grid-column field="name" title="Team Name">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <!-- TODO2: add elipsis  on overflow and tooltip on hover and active -->
+                    <div class="name">{{ dataItem.name }}</div>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="today" title="Today">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <app-precent-table-cell-presentational [cssClasses]="dataItem.todayClass" [value]="dataItem.today">
+                    </app-precent-table-cell-presentational>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="mtd" title="MTD" [class]="{'text-center': true}">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <app-precent-table-cell-presentational [cssClasses]="dataItem.mtdClass" [value]="dataItem.mtd">
+                    </app-precent-table-cell-presentational>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="ytd" title="YTD" [class]="{'text-center': true}">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <app-precent-table-cell-presentational [cssClasses]="dataItem.ytdClass" [value]="dataItem.ytd">
+                    </app-precent-table-cell-presentational>
+                </ng-template>
+            </kendo-grid-column>
+
+
+            <!-- TODO1: create grid footer presentational component (Content projection) -->
+        </kendo-grid>
+
+
+    </ng-container>
+</div>

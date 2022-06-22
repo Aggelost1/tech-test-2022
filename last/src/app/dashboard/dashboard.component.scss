@@ -1,0 +1,118 @@
+@import 'src/app/styles/_index.scss';
+
+$dropdown-num: 2;
+
+// TODO3 change px to rem
+.dashboard {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: fit-content;
+    min-width: 450px;
+    @include prefix($property: box-shadow, $value: $card-shadow);
+
+    &__button {
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &--primary {
+            color: $text-color;
+            background-color: $background-color-dark-1;
+            border-color: $border-color;
+
+            &:hover,
+            &:focus {
+                background-color: $background-color-button-primary-active;
+                border-color: $border-color-button-primary-active;
+            }
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .dropdown {
+        width: fit-content !important;
+        min-width: 100px !important;
+        // 200px is the size of the rest of the header items(run button and title) + some empty spacy  (number of dropdowns)
+        //TODO1: possible refactor if we add more things use flex for the header and make the dropdown area one of the items so we no longer need the 100px here 
+        max-width: calc((100% - 200px) / $dropdown-num) !important;
+
+        &--dark {
+            background: $background-transparent-dark-1;
+            color: $text-color;
+
+            &:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+
+    .k-grid {
+        background-color: $background-transparent-dark-2;
+        color: $text-color;
+    }
+
+    .k-toolbar,
+    .k-pager-wrap,
+    .k-grid-content,
+    .k-grid-header,
+    .k-grouping-header,
+    .k-grid-add-row,
+    .k-grid-footer {
+        background-color: transparent;
+        color: $text-color;
+    }
+
+    // removing the scroll needs the padding to be removed as well
+    .k-grid-header {
+        padding-right: 0 !important;
+    }
+
+    .k-grid-content {
+        overflow-y: auto;
+    }
+
+    tr {
+        &:hover {
+            background: $background-transparent-row-active-dark  !important;
+        }
+    }
+
+    .name {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 32px;
+        padding-left: 10px;
+    }
+
+    .border--rounded {
+        border-radius: $card-border-radius;
+    }
+
+
+
+}
+
+
+// TODO2: add this in a utils css
+.text--error {
+    color: $danger-color;
+}
+
+.text--success {
+    color: $success-color;
+}
+
+.text--warning {
+    color: $warning-color;
+}

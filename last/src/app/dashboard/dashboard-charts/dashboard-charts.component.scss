@@ -1,0 +1,12 @@
+.dashboard__charts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .k-chart {
+        margin: 10px;
+        opacity: 0.6;
+    }
+
+    padding-bottom: 20px;
+}

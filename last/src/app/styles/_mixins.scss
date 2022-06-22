@@ -1,0 +1,45 @@
+@import "variables";
+
+@mixin prefix($property, $value, $prefixes-as-array: ("ms", "webkit", "moz", "o")) {
+    #{$property}: $value;
+
+    @each $prefix in $prefixes-as-array {
+        #{'-' + $prefix + "-" + $property}: $value;
+    }
+}
+
+@mixin media-query-desktop {
+    @media only screen and (min-width: $laptop-end) {
+        @content;
+    }
+}
+
+@mixin media-query-laptop {
+    @media only screen and (min-width: $tablet-end) and (max-width: $laptop-end) {
+        @content;
+    }
+}
+
+@mixin media-query-tablet {
+    @media only screen and (min-width: $large-mobile-end) and (max-width: $tablet-end) {
+        @content;
+    }
+}
+
+@mixin media-query-mobile-large {
+    @media only screen and (min-width: $medium-mobile-end) and (max-width: $large-mobile-end) {
+        @content;
+    }
+}
+
+@mixin media-query-mobile-medium {
+    @media only screen and (min-width: $small-mobile-end) and (max-width: $medium-mobile-end) {
+        @content;
+    }
+}
+
+@mixin media-query-mobile-small {
+    @media only screen and (max-width: $small-mobile-end) {
+        @content;
+    }
+}
