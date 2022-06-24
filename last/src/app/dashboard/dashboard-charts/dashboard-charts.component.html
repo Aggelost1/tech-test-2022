@@ -1,4 +1,5 @@
 <div *ngIf="data.length" class="dashboard__charts-wrapper">
+    <!--TODO1: add themes for the charts or otherwise change their background color -->
     <kendo-chart title="YTD ">
         <kendo-chart-series>
             <kendo-chart-series-item [data]="data.map(YTDChart, [])"> </kendo-chart-series-item>
