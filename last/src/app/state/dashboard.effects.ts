@@ -17,6 +17,7 @@ export class DashBoardEffects {
   ) { }
 
   // TODO1: add guards to not call apis if isLoading is true and if params are falsy
+  // TODO2: change exhaust to switch and add unit tests for that (maybe change functionality of dashboard toolbar when loading so loadteams switch makes sense
   loadteams$ = createEffect(() => this.actions$.pipe(
     ofType(loadTeamList),
     concatLatestFrom((action) => this.strore.select(selectSearchParams)),
@@ -34,6 +35,7 @@ export class DashBoardEffects {
   );
 
   // TODO1: add guards to not call apis if isLoading is true and if params are falsy
+  // TODO2: change exhaust to switch and add unit tests for that 
   loadMeasurments$ = createEffect(() => this.actions$.pipe(
     ofType(loadMeasurments),
     concatLatestFrom((action) => this.strore.select(selectFlags)),
@@ -77,6 +79,7 @@ export class DashBoardEffects {
   });
 
   // TODO1: add guards to not call apis if isLoading is true and if params are falsy
+  // TODO2: change exhaust to switch and add unit tests for that 
   loadGroups$ = createEffect(() => this.actions$.pipe(
     ofType(loadGroups),
     exhaustMap((action) => {
